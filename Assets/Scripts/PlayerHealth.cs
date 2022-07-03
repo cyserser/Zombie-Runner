@@ -5,24 +5,21 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float health = 100f;
+
+    DeathHandler deathHandler;
     
     void Start()
     {
-        
+        deathHandler = GetComponent<DeathHandler>();
     }
 
-    
-    void Update()
-    {
-        
-    }
 
     public void GetDamaged(float damage)
     {
         health -= damage;
         if(health <= 0)
         {
-            Debug.Log("You ded");
+            deathHandler.HandleDeath();
         }
     }
 }
