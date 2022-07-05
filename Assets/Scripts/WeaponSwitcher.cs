@@ -7,9 +7,13 @@ public class WeaponSwitcher : MonoBehaviour
 {
 
     [SerializeField] int currentWeapon = 0;
+
+    bool canSwitch = true;
+   
    
     void Start()
-    {
+    {  
+        
         SetWeaponActive();
     }
 
@@ -17,8 +21,11 @@ public class WeaponSwitcher : MonoBehaviour
     {
         int previousWeapon = currentWeapon;
 
-        ProcessKeyInput();
-        ProcessScrollWheel();
+        if(canSwitch)
+        {
+            ProcessKeyInput();
+            ProcessScrollWheel();
+        }
 
         if(previousWeapon != currentWeapon)
         {
@@ -81,6 +88,11 @@ public class WeaponSwitcher : MonoBehaviour
             }
             weaponIndex++;
         }
+    }
+
+    public void SetCanSwitch(bool value)
+    {
+        canSwitch = value;
     }
 
 }

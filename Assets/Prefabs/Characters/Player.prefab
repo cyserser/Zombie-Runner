@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 8425618491124169659}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,7 +391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2567c929165631c448b40556ada8a92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 10
+  ammoSlots:
+  - ammoType: 1
+    ammoAmount: 30
+  - ammoType: 0
+    ammoAmount: 10
 --- !u!1001 &3540599556475810276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,9 +411,33 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 8425618491124169659}
+    - target: {fileID: 472087366779914808, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 472087366779914808, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145386471179703023, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 8425618489520012972}
+    - target: {fileID: 1145386471179703023, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
+      propertyPath: zoomedInFov
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145386471179703023, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
+      propertyPath: fpsController
+      value: 
+      objectReference: {fileID: 8425618489514838376}
     - target: {fileID: 2802299334831586709, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
       propertyPath: m_Name
       value: Carbine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802299334831586709, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2802299334831677877, guid: 557fdb47ccd861e429e3a56ef70eef5c, type: 3}
       propertyPath: m_RootOrder
@@ -477,9 +505,25 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 8425618491124169659}
+    - target: {fileID: 472087366779914808, guid: d7bf2396c7b4d6846b3126831367d434, type: 3}
+      propertyPath: timeBetweenShots
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145386471179703023, guid: d7bf2396c7b4d6846b3126831367d434, type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 8425618489520012972}
+    - target: {fileID: 1145386471179703023, guid: d7bf2396c7b4d6846b3126831367d434, type: 3}
+      propertyPath: fpsController
+      value: 
+      objectReference: {fileID: 8425618489514838376}
     - target: {fileID: 2802299334831586709, guid: d7bf2396c7b4d6846b3126831367d434, type: 3}
       propertyPath: m_Name
       value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802299334831586709, guid: d7bf2396c7b4d6846b3126831367d434, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2802299334831677877, guid: d7bf2396c7b4d6846b3126831367d434, type: 3}
       propertyPath: m_RootOrder

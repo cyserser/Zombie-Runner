@@ -14,6 +14,7 @@ public class WeaponZoom : MonoBehaviour
 
     bool isZoomed;
 
+
     void Update()
     {
 
@@ -21,20 +22,32 @@ public class WeaponZoom : MonoBehaviour
         {
             if(!isZoomed)
             {
-                myCamera.fieldOfView = zoomedInFov;
-                fpsController.mouseLook.XSensitivity = zoomedInSensitivity;
-                fpsController.mouseLook.YSensitivity = zoomedInSensitivity;
-
-                isZoomed = !isZoomed;
+                ZoomIn();
             }
             else
             {
-                myCamera.fieldOfView = zoomedOutFov;
-                fpsController.mouseLook.XSensitivity = zoomedOutSensitivity;
-                fpsController.mouseLook.YSensitivity = zoomedOutSensitivity;
-
-                isZoomed = !isZoomed;
+                ZoomOut();
             }
         }
+    }
+
+    void ZoomIn()
+    {
+        GetComponentInParent<WeaponSwitcher>().SetCanSwitch(false);
+        myCamera.fieldOfView = zoomedInFov;
+        fpsController.mouseLook.XSensitivity = zoomedInSensitivity;
+        fpsController.mouseLook.YSensitivity = zoomedInSensitivity;
+
+        isZoomed = !isZoomed;
+    }
+
+    void ZoomOut()
+    {
+        GetComponentInParent<WeaponSwitcher>().SetCanSwitch(true);
+        myCamera.fieldOfView = zoomedOutFov;
+        fpsController.mouseLook.XSensitivity = zoomedOutSensitivity;
+        fpsController.mouseLook.YSensitivity = zoomedOutSensitivity;
+
+        isZoomed = !isZoomed;
     }
 }
