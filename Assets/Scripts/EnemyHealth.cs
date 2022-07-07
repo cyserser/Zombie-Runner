@@ -7,28 +7,34 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float hitPoints = 100f;
 
     Animator myAnimator;
-    EnemyAI enemyAI;
-    bool isDead;
+   
+    [SerializeField] bool isDead = false;
 
     void Start() 
     {
         myAnimator = FindObjectOfType<Animator>();
-        enemyAI = GetComponent<EnemyAI>();
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     public void TakeDamage(float damage)
     {
-        if(!isDead)
+        BroadcastMessage("OnDamageTaken");
+        hitPoints -= damage;
+        if (hitPoints <= 0)
         {
-            BroadcastMessage("OnDamageTaken");
-            hitPoints -= damage;
-            if (hitPoints <= 0)
-            {
-                isDead = true;
-                enemyAI.enabled = false;
-                myAnimator.SetTrigger("die");
-            }
+            //Destroy(gameObject);
+            Die();
         }
-        
+    }
+
+    void Die()
+    {
+        if(isDead) return;
+        isDead = true;
+        myAnimator.SetTrigger("die");
     }
 }
