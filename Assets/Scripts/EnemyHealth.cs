@@ -26,8 +26,8 @@ public class EnemyHealth : MonoBehaviour
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
-            //Destroy(gameObject);
-            Die();
+            Destroy(gameObject);
+            //Die(); BUG
         }
     }
 

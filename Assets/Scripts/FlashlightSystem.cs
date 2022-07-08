@@ -23,6 +23,16 @@ public class FlashlightSystem : MonoBehaviour
         DecreaseLightIntensity();
     }
 
+    public void RestoreLightAngle(float restoreAngle)
+    {
+        flashLight.spotAngle = restoreAngle;
+    }
+
+    public void RestoreLightIntensity(float intensityAmount)
+    {
+        flashLight.intensity += intensityAmount;
+    }
+
     void DecreaseLightAngle()
     {
         if(flashLight.spotAngle >= minimumAngle)
